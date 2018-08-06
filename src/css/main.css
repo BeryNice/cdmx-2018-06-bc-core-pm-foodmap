@@ -16,3 +16,22 @@ body{
 .loading {
     align-items: center;
 }
+
+
+
+/* MAPA DE GOOGLE */
+
+/* Always set the map height explicitly to define the size of the div
+* element that contains the map. */
+#map {
+    height: 100%;
+}
+
+
+
+/* Vista inicail resultados */
+
+img{
+    height: 140px;
+    widows: 140px;
+}

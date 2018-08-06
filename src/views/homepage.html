@@ -1,12 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>FoodMap | Home</title>
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/css/uikit.min.css" />
+    <!-- UIkit JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/js/uikit-icons.min.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" src="../css/main.css">
 </head>
+
 <body>
-    
+    <div class="uk-container uk-container-expand">
+        <header>
+            <h1>Foodmap</h1>
+        </header>
+
+        <div id="map"></div>
+        <div>
+            <form>
+                <div class="uk-margin">
+                    <div class="uk-inline">
+                        <a class="uk-form-icon uk-form-icon-flip" href="#" uk-icon="icon: search"></a>
+                        <input class="uk-input" type="text" id="filter" placeholder="Filtar Restaurantes">
+                    </div>
+                    <button id="search" class="uk-button uk-button-primary">Buscar</button>
+
+                </div>
+            </form>
+        </div>
+        <div id="results">
+
+
+        </div>
+
+
+
+        <div>
+            <h3>Lista de Restaurantes</h3>
+            <section id="all-restaurants"></section>
+
+
+           <!--  <ul id="total-restaurants" class="uk-thumbnav" uk-margin>
+                <li >
+                    <a href="#modal-center" uk-toggle>
+                        <img src="../images/cedron.png" width="100" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="../images/la-tapatia.jpg" width="100" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="../images/sushi-factory.png" width="100" alt="">
+                    </a>
+                </li>
+            </ul> -->
+            <div id="modal-center" class="uk-flex-top" uk-modal>
+                <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+                    <button class="uk-modal-close-default" type="button" uk-close></button>
+                    <h3>Nombre del Restaurante</h3>
+                    <img src="../images/cedron.png" class="">
+                    <p>tipo de comida</p>
+                    <p>zona</p>
+                    <p>dirección</p>
+                    <p>precio</p>
+                    <p>servicio a domicilio</p>
+                    <p class="uk-text-right">
+                        <button class="uk-button uk-button-default uk-modal-close" type="button">Cancelar</button>
+                        <button class="uk-button uk-button-primary" type="button">Pedir</button>
+                    </p>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <!-- Inicializando firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
+    <script src="../js/credenciales-frbs.js"> </script>
+    <!-- <script src="../js/app.js"></script>  
+       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtQDOsezv8znw0bTJsJzMmxk-YlnOYxrU&callback=initMap" async
+        defer></script> -->
+    <script src="../js/main.js"></script>
 </body>
+
 </html>
