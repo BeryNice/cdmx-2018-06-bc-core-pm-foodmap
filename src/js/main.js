@@ -29,15 +29,6 @@ let zone;
 /* Obtiene los elementos en la db de firebase */
 const init = () => {
     // console.log('funcion cargando al cargar la pagina');
-   
-    /* refRestaurants.on('value', (datos) => {
-        const restaurantes = datos.val();
-        console.log(restaurantes);
-        for (var val in datos) {
-           // console.log(val);
-
-        } 
-    })*/
     refRestaurants = firebase.database().ref().child('restaurantes');
     getAllRestaurants();
     createAllRestaurants();
@@ -47,14 +38,14 @@ const init = () => {
 /* Al cargar la página ejecuta función init muestra automáticamente todos los resultados de restaurantes*/
 
 /* Obteniendo Listado de restaurantes desde Firebase */
-const createAllRestaurants = (restaurantString) => {
+const createAllRestaurants = (imageSrc) => {
     // console.log('entrando alista de restaurantes');
     refRestaurants.on('child_added', (snapshot) => {
         nameRestaurant = snapshot.key;
-        console.log(nameRestaurant);
+        // console.log(nameRestaurant);
         infoRestaurant = snapshot.val();
-        console.log(infoRestaurant);
-        
+        // console.log(infoRestaurant);
+
         // asignando valores con referencias datos
         address = infoRestaurant.domicilio;
         delivery = infoRestaurant.entrega;
@@ -62,48 +53,53 @@ const createAllRestaurants = (restaurantString) => {
         price = infoRestaurant.precio;
         type = infoRestaurant.tipo;
         zone = infoRestaurant.zona;
-     });
-
-    /*refRestaurants.on('value', (snapshot) => {
-        results.innerHTML = '';
-    })*/
-
+    });
 
     // lista total de restaurantes
-    const ulRestaurant = document.createElement('ul');
+    // const ulRestaurant = document.createElement('ul');
     const liRestaurant = document.createElement('li');
+    const title = document.createElement('p');
     const aRestaurant = document.createElement('a');
     const imgRestaurant = document.createElement('img');
 
 
     // asignando clases a los elementos lista total de restaurantes
-    ulRestaurant.className = 'uk-thumbnav';
-    ulRestaurant.setAttribute('uk-margin', '');
-    aRestaurant.setAttribute('uk-toggle','');
+    // ulRestaurant.className = 'uk-thumbnav';
+    // ulRestaurant.setAttribute('uk-margin', '');
+    title.className = '';
+    aRestaurant.setAttribute('uk-toggle', '');
     aRestaurant.href = '#modal-center';
+    //imgRestaurant.className = 'img-thumbnav';
+    imgRestaurant.setAttribute('src', imageSrc)
+    imgRestaurant.setAttribute('width', '140px');
     // liRestaurant.className = '';
 
     // creando dinámicamente los elementos de la lista de restaurantes
-    ulRestaurant.appendChild(liRestaurant);
+    //ulRestaurant.appendChild(liRestaurant);
     liRestaurant.appendChild(aRestaurant);
     aRestaurant.appendChild(imgRestaurant);
-    imgRestaurant.src = imageSrc;
+    // imgRestaurant.src = imageSrc;
     imgRestaurant.alt = nameRestaurant;
     imgRestaurant.title = nameRestaurant;
 
-    
+
     //liRestaurant.innerHTML = nameRestaurant;
 
-    console.log(ulRestaurant);
-    
-    return ulRestaurant;
+    //console.log(ulRestaurant);
+
+    return liRestaurant;
 
 }
 
 const getAllRestaurants = () => {
+    //console.log(key, restaurantes);
+    refRestaurants.on('child_added', (snapshot) => {
+        liRestaurant = createAllRestaurants(imageSrc);
+        showAllRestaurants.appendChild(liRestaurant);
+    });
 
+    console.log(refRestaurants);
 }
-
 
 
 

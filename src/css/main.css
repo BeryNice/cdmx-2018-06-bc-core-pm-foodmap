@@ -31,7 +31,13 @@ body{
 
 /* Vista inicail resultados */
 
-img{
+img {
     height: 140px;
-    widows: 140px;
+    width: 140px;
+}
+
+
+.img-thumbnav {
+    height: 140px;
+    width: 140px;
 }
