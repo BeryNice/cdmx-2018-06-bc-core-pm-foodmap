@@ -204,9 +204,9 @@ const createAllModalRestaurants = () => {
 }
 
 const filterRestaurants = () => {
-    refRestaurants.orderByChild('').equalTo('').on('child_added', (snapshot){
+   /*  refRestaurants.orderByChild('').equalTo('').on('child_added', (snapshot){
         console.log(snapshot.key);        
-    })
+    })*/
 }
 
 
