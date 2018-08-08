@@ -162,11 +162,11 @@ const createAllModalRestaurants = () => {
     pButtons.appendChild(buttonPedir);
 
     h3Title.innerHTML = nameRestaurant;
-    pTipo.innerHTML = type;
-    pZona.innerHTML = zone;
-    pDomicilio.innerHTML = address;
-    pPrecio.innerHTML = price;
-    pEntrega.innerHTML = delivery;
+    pTipo.innerHTML = 'Tipo de Comida: '+ type;
+    pZona.innerHTML = 'Zona: '+ zone;
+    pDomicilio.innerHTML = 'Dirección: '+ address;
+    pPrecio.innerHTML = 'Precio:'+ price;
+    pEntrega.innerHTML = 'Entrega a domicilio: ' + delivery;
     buttonCancel.innerHTML = 'CANCELAR';
     buttonPedir.innerHTML = 'PEDIR';
    
@@ -215,6 +215,8 @@ const getAllRestaurants = () => {
     refRestaurants.on('child_added', (snapshot) => {
         liRestaurant = createAllRestaurants();
         showAllRestaurants.appendChild(liRestaurant);
+        // console.log(showAllRestaurants);
+        
         divModal = createAllModalRestaurants();
         modalWindowRestaurants.appendChild(divModal);
     });
